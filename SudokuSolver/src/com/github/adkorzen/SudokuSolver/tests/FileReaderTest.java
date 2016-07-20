@@ -1,6 +1,6 @@
 package com.github.adkorzen.SudokuSolver.tests;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 
@@ -30,7 +30,6 @@ public class FileReaderTest {
 		FileReader.readFile("res/tests/Invalid.txt");
 	}
 
-	@SuppressWarnings("deprecation")
 	@Test()
 	public void ReadFile_CorrectFile_ReturnsIntArray() {
 		int[][] actual = FileReader.readFile("res/tests/SudokuTest.txt");
@@ -39,6 +38,6 @@ public class FileReaderTest {
 				{ 6, 0, 0, 0, 0, 0, 0, 0, 9 }, { 8, 0, 0, 0, 4, 5, 9, 0, 7 }, { 2, 0, 0, 0, 7, 8, 0, 0, 0 },
 				{ 0, 4, 6, 0, 0, 2, 0, 8, 0 } };
 
-		assertEquals(actual, expected);
+		assertArrayEquals(expected, actual);
 	}
 }
