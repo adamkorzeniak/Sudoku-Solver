@@ -11,11 +11,13 @@ import com.github.adkorzen.SudokuSolver.exceptions.FileHoldTooManyEntriesExcepti
 
 public class FileReader {
 
-	public static int[][] readFile(String path) {
+	private static BufferedReader br;
+
+	public static int[][] readFile(String path) throws IOException {
 		String data = "";
 		try {
 			java.io.FileReader reader = new java.io.FileReader(path);
-			BufferedReader br = new BufferedReader(reader);
+			br = new BufferedReader(reader);
 			String line = "";
 			while ((line = br.readLine()) != null) {
 				data += line + "\n";
@@ -25,13 +27,17 @@ public class FileReader {
 			throw new FileDoesNotExistException(path);
 		} catch (IOException e) {
 			e.printStackTrace();
+		} finally {
+			br.close();
 		}
 
 		String[] splitted = data.split("\\s");
-		if (splitted.length < 81)
+		if (splitted.length < 81) {
 			throw new FileHoldTooFewEntriesException(path);
-		if (splitted.length > 81)
+		}
+		if (splitted.length > 81) {
 			throw new FileHoldTooManyEntriesException(path);
+		}
 		int[][] result = new int[9][9];
 		for (int i = 0; i < 9; i++) {
 			for (int j = 0; j < 9; j++) {
