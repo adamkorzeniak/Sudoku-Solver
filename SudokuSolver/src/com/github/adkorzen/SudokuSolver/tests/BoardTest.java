@@ -41,15 +41,15 @@ public class BoardTest {
 		int expected = 81;
 		assertEquals(expected, actual);
 	}
-
+	
 	@Test
-	public void SetAndGetFieldValue_FieldWithValue_OK() {
+	public void SetAndGetFieldValue_FieldWithValue_CorrectlySet() {
 		Field field = board.getField(3, 4);
 		int actual = field.getValue();
 		int expected = 5;
 		assertEquals(expected, actual);
 	}
-
+	
 	@Test
 	public void SetAndGetFieldValue_FieldWithNoValue_ZeroValue() {
 		Field field = board.getField(3, 1);
@@ -59,7 +59,7 @@ public class BoardTest {
 	}
 
 	@Test
-	public void SetAndGetResult_CorrectValues_OK() {
+	public void SetAndGetResult_CorrectValues_CorrectlySet() {
 		board.setResult(5, 7, 2);
 		int actual = board.getResult()[6][4];
 		int expected = 2;
@@ -94,11 +94,5 @@ public class BoardTest {
 	@Test(expected = IndexOutOfBoundsException.class)
 	public void SetResult_YCoorTooHigh_RuntimeException() {
 		board.setResult(3, 22, 3);
-	}
-	@Test
-	public void DecreasedUnsolvedAmount_DecreaseUntil0_OK() {
-		for (int i = 0; i < 81; i++) {
-			board.decreaseUnsolvedUmount();
-		}
 	}
 }

@@ -20,7 +20,8 @@ public class Board {
 		}
 		createFields();
 	}
-	public void createFields() {
+
+	private void createFields() {
 		for (int i = 0; i < 9; i++) {
 			for (int j = 0; j < 9; j++) {
 				fields[i][j] = new Field(this, j + 1, i + 1);
@@ -30,16 +31,18 @@ public class Board {
 			}
 		}
 	}
-	public void decreaseUnsolvedUmount() {
+
+	public void decreaseUnsolvedAmount() {
 		unsolvedAmount--;
 		if (unsolvedAmount == 0) {
 			Checker.printSolution();
 		}
 	}
+
 	public void solve() {
 		Checker.solveBoard(this);
 	}
-	
+
 	public int[][] getResult() {
 		return results;
 	}
@@ -54,6 +57,7 @@ public class Board {
 		}
 		results[y - 1][x - 1] = value;
 	}
+
 	public Field getField(int x, int y) {
 		return fields[y - 1][x - 1];
 	}

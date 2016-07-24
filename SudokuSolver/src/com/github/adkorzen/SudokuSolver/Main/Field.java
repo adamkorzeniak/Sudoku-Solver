@@ -1,6 +1,7 @@
 package com.github.adkorzen.SudokuSolver.Main;
 
 import com.github.adkorzen.SudokuSolver.exceptions.AmbiguousValueException;
+import com.github.adkorzen.SudokuSolver.exceptions.IncorrectValueException;
 import com.github.adkorzen.SudokuSolver.exceptions.NoPossibleValueException;
 
 public class Field {
@@ -30,12 +31,11 @@ public class Field {
 
 	// Test
 	public void setImpossibleValue(int value) {
-		if (possible[value - 1] = true) {
+		if (isPossible(value)) {
 			possible[value - 1] = false;
 			decreasePossibleCount();
 		}
 	}
-
 	private void setAllValuesPossible() {
 		for (int i = 0; i < 9; i++) {
 			possible[i] = true;
@@ -51,6 +51,7 @@ public class Field {
 			for (int i = 0; i < 9; i++) {
 				if (possible[i] == true) {
 					value = i + 1;
+					Checker.checkLineColumnSquare(this);
 					break;
 				}
 			}
@@ -60,11 +61,20 @@ public class Field {
 			throw new NoPossibleValueException();
 		}
 		board.setResult(x, y, value);
-		Checker.updateAfterFilling(x, y, value);
+		board.decreaseUnsolvedAmount();
 	}
 
 	public void setValue(int value) {
-		this.value = value;
+		if (value > 0 && value < 10) {
+			this.value = value;
+			board.decreaseUnsolvedAmount();
+			this.possibleCount = 0;
+			for (int i = 0; i < 9; i++) {
+				possible[i] = false;
+			}
+		} else if (value != 0) {
+			throw new IncorrectValueException(value);
+		}
 	}
 
 	public int getX() {

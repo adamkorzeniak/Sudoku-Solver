@@ -7,49 +7,24 @@ import org.junit.Test;
 
 import com.github.adkorzen.SudokuSolver.Main.Board;
 import com.github.adkorzen.SudokuSolver.Main.Field;
+import com.github.adkorzen.SudokuSolver.exceptions.IncorrectValueException;
 
 public class FieldTest {
 
 	private Field field;
+	private Board board;
 
 	@Before
 	public void setUp() throws Exception {
-		field = new Field(new Board("res/tests/SudokuTest.txt"), 3, 4);
+		board = new Board("res/tests/SudokuTest.txt");
+		field = new Field(board, 3, 4);
 	}
 
-	@Test
-	public void GetValueAndDecreaseCount_PossibleCount1_OK() {
-		for (int i = 2; i < 10; i++) {
-			field.setImpossibleValue(i);
-		}
-		int expected = 1;
-		int actual = field.getValue();
-		
-		assertEquals(expected, actual);
+	@Test (expected = IncorrectValueException.class)
+	public void SetFieldValue_FieldWithIncorrectValue_RuntimeException() {
+		Field field = new Field(board, 3, 4);
+		field.setValue(10);
 	}
-
-//	@Test(expected = AmbiguousValueException.class)
-//	public void SetValue_PossibleCountMoreThan1_RuntimeException() {
-//
-//		for (int i = 1; i < 9; i++) {
-//			field.setImpossibleValue(i);
-//		}
-//		for (int i = 0; i < 7; i++) {
-//			field.decreasePossibleCount();
-//		}
-//		field.setValue();
-//	}
-//
-//	@Test(expected = NoPossibleValueException.class)
-//	public void SetValue_PossibleCounty0_RuntimeExceptio() {
-//		for (int i = 1; i < 9; i++) {
-//			field.setImpossibleValue(i);
-//		}
-//		for (int i = 0; i < 9; i++) {
-//			field.decreasePossibleCount();
-//		}
-//		field.setValue();
-//	}
 	
 	@Test
 	public void FieldConstructor_SetAllValuesPossible_OK() {
@@ -59,6 +34,14 @@ public class FieldTest {
 			actuals[i] = field.isPossible(i + 1);
 		}
 		assertArrayEquals(expecteds, actuals);
+	}
+	@Test
+	public void SetImpossibleValue_ValidInput_OK() {
+		field.setImpossibleValue(5);
+		boolean actual = field.isPossible(5);
+		boolean expected = false;
+		
+		assertEquals(expected, actual);
 	}
 
 }
