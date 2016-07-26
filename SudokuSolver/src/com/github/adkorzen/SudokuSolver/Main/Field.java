@@ -51,7 +51,7 @@ public class Field {
 			for (int i = 0; i < 9; i++) {
 				if (possible[i] == true) {
 					value = i + 1;
-					Checker.checkLineColumnSquare(this);
+					Checker.crossOutFromLineColumnSquare(this);
 					break;
 				}
 			}
@@ -67,6 +67,10 @@ public class Field {
 	public void setValue(int value) {
 		if (value > 0 && value < 10) {
 			this.value = value;
+			if (board.isCreated()) {
+			Checker.crossOutFromLineColumnSquare(this);
+			}
+			board.setResult(x, y, value);
 			board.decreaseUnsolvedAmount();
 			this.possibleCount = 0;
 			for (int i = 0; i < 9; i++) {

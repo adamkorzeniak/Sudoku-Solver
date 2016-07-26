@@ -10,6 +10,7 @@ public class Board {
 	private Field[][] fields = new Field[9][9];
 	private int[][] results;
 	private int unsolvedAmount;
+	private boolean created;
 
 	public Board(String path) {
 		unsolvedAmount = 81;
@@ -30,12 +31,21 @@ public class Board {
 				}
 			}
 		}
+		created = true;
 	}
 
 	public void decreaseUnsolvedAmount() {
 		unsolvedAmount--;
 		if (unsolvedAmount == 0) {
 			Checker.printSolution();
+			boolean isCorrect = Checker.isSolutionCorrect(this);
+			if (isCorrect) {
+			System.out.print("Solution is correct.");
+			} else {
+				System.out.print("Solution is wrong.");
+
+			}
+			System.exit(0);
 		}
 	}
 
@@ -60,5 +70,9 @@ public class Board {
 
 	public Field getField(int x, int y) {
 		return fields[y - 1][x - 1];
+	}
+	
+	public boolean isCreated() {
+		return created;
 	}
 }
