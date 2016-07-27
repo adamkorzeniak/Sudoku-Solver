@@ -45,7 +45,7 @@ public class Board {
 				System.out.print("Solution is wrong.");
 
 			}
-			System.exit(0);
+//			System.exit(0);
 		}
 	}
 
