@@ -1,18 +1,19 @@
-package com.github.adkorzen.SudokuSolver.Main.Methods;
+package com.github.adkorzen.SudokuSolver.main.methods;
 
-import com.github.adkorzen.SudokuSolver.Main.Board;
-import com.github.adkorzen.SudokuSolver.Main.Field;
+
+import com.github.adkorzen.SudokuSolver.main.Board;
+import com.github.adkorzen.SudokuSolver.main.Field;
 
 public class SingleCandidateMethod {
 	private static Board board;
-	private static Field field;
+	private Field field;
 	
-	public static void run(Board b) {
+	public void run(Board b) {
 		board = b;
 		singleCandidateMethod();
 	}
 	
-	private static void singleCandidateMethod() {
+	private void singleCandidateMethod() {
 		for (int y = 1; y < 10; y++) {
 			for (int x = 1; x < 10; x++) {
 				field = board.getField(x, y);

@@ -1,9 +1,11 @@
-package com.github.adkorzen.SudokuSolver.Main;
+package com.github.adkorzen.SudokuSolver.main;
+
 
 import java.io.IOException;
 
 import com.github.adkorzen.SudokuSolver.exceptions.IncorrectValueException;
 import com.github.adkorzen.SudokuSolver.fileIO.FileReader;
+import com.github.adkorzen.SudokuSolver.main.helper.Solver;
 
 public class Board {
 
@@ -37,8 +39,8 @@ public class Board {
 	public void decreaseUnsolvedAmount() {
 		unsolvedAmount--;
 		if (unsolvedAmount == 0) {
-			Checker.printSolution();
-			boolean isCorrect = Checker.isSolutionCorrect(this);
+			Solver.printSolution();
+			boolean isCorrect = Solver.isSolutionCorrect(this);
 			if (isCorrect) {
 			System.out.print("Solution is correct.");
 			} else {
@@ -50,7 +52,7 @@ public class Board {
 	}
 
 	public void solve() {
-		Checker.solveBoard(this);
+		Solver.solveBoard(this);
 	}
 
 	public int[][] getResult() {

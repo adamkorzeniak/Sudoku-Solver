@@ -1,9 +1,11 @@
-package com.github.adkorzen.SudokuSolver.Main;
+package com.github.adkorzen.SudokuSolver.main;
 
-import com.github.adkorzen.SudokuSolver.Main.Methods.SingleCandidateMethod;
+
 import com.github.adkorzen.SudokuSolver.exceptions.AmbiguousValueException;
 import com.github.adkorzen.SudokuSolver.exceptions.IncorrectValueException;
 import com.github.adkorzen.SudokuSolver.exceptions.NoPossibleValueException;
+import com.github.adkorzen.SudokuSolver.main.helper.Solver;
+import com.github.adkorzen.SudokuSolver.main.methods.SingleCandidateMethod;
 
 public class Field {
 	private Board board;
@@ -34,7 +36,7 @@ public class Field {
 		if (isPossible(value)) {
 			possible[value - 1] = false;
 			decreasePossibleCount();
-			Checker.setChangeHappend();
+			Solver.setChangeHappend();
 		}
 	}
 
@@ -57,7 +59,7 @@ public class Field {
 					board.decreaseUnsolvedAmount();
 					setImpossibleValue(value);
 					SingleCandidateMethod.crossOutFromLineColumnSquare(this);
-					Checker.setChangeHappend();
+					Solver.setChangeHappend();
 					break;
 				}
 			}
@@ -74,7 +76,7 @@ public class Field {
 				this.value = value;
 				if (board.isCreated()) {
 					SingleCandidateMethod.crossOutFromLineColumnSquare(this);
-					Checker.setChangeHappend();
+					Solver.setChangeHappend();
 				}
 				board.setResult(x, y, value);
 				board.decreaseUnsolvedAmount();

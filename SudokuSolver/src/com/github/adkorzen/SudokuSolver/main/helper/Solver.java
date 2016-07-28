@@ -1,12 +1,13 @@
-package com.github.adkorzen.SudokuSolver.Main;
+package com.github.adkorzen.SudokuSolver.main.helper;
 
-import com.github.adkorzen.SudokuSolver.Main.Methods.CandidateLinesMethod;
-import com.github.adkorzen.SudokuSolver.Main.Methods.MultipleLinesMethod;
-import com.github.adkorzen.SudokuSolver.Main.Methods.NakedPairs;
-import com.github.adkorzen.SudokuSolver.Main.Methods.SingleCandidateMethod;
-import com.github.adkorzen.SudokuSolver.Main.Methods.SinglePositionMethod;
+import com.github.adkorzen.SudokuSolver.main.Board;
+import com.github.adkorzen.SudokuSolver.main.methods.CandidateLinesMethod;
+import com.github.adkorzen.SudokuSolver.main.methods.MultipleLinesMethod;
+import com.github.adkorzen.SudokuSolver.main.methods.NakedPairsMethod;
+import com.github.adkorzen.SudokuSolver.main.methods.SingleCandidateMethod;
+import com.github.adkorzen.SudokuSolver.main.methods.SinglePositionMethod;
 
-public class Checker {
+public class Solver {
 	private static Board board;
 	private static boolean changeHappened = false;
 
@@ -14,13 +15,13 @@ public class Checker {
 	// Not yet finished
 	public static void solveBoard(Board b) {
 		board = b;
+		new SingleCandidateMethod().run(board);
 		do {
 			changeHappened = false;
-			SingleCandidateMethod.run(board);
-			SinglePositionMethod.run(board);
-			CandidateLinesMethod.run(board);
-			MultipleLinesMethod.run(board);
-			NakedPairs.run(board);
+			new SinglePositionMethod().run(board);
+			new CandidateLinesMethod().run(board);
+			new MultipleLinesMethod().run(board);
+			new NakedPairsMethod().run(board);
 		} while (changeHappened);
 	}
 
@@ -149,13 +150,5 @@ public class Checker {
 
 	public static void setChangeHappend() {
 		changeHappened = true;
-	}
-	
-	public static int startXSquare(int square) {
-		return (square - 1) % 3 * 3 + 1;
-	}
-	
-	public static int startYSquare(int square) {
-		return (square - 1) / 3 * 3 + 1;
 	}
 }

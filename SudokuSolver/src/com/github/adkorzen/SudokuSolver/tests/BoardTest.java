@@ -6,9 +6,9 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.github.adkorzen.SudokuSolver.Main.Board;
-import com.github.adkorzen.SudokuSolver.Main.Field;
 import com.github.adkorzen.SudokuSolver.exceptions.IncorrectValueException;
+import com.github.adkorzen.SudokuSolver.main.Board;
+import com.github.adkorzen.SudokuSolver.main.Field;
 
 public class BoardTest {
 	Board board;
