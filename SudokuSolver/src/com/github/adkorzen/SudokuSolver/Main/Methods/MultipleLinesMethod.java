@@ -49,11 +49,11 @@ public class MultipleLinesMethod {
 		for (int squareLine = 1; squareLine < 4; squareLine++) {
 			for (int square = 1; square < 4; square++) {
 				squareID = 3 * (squareLine - 1) + square;
-				if (getTwoLines(list, squareID).length > 0) {
+				if (getTwoLines(list, squareID) != null) {
 					first = getTwoLines(list, squareID)[0];
 					second = getTwoLines(list, squareID)[1];
 					for (int comparedSquareID = squareID + 1; comparedSquareID % 3 != 1; comparedSquareID++) {
-						if (getTwoLines(list, comparedSquareID).length > 1) {
+						if (getTwoLines(list, comparedSquareID) != null) {
 							if (getTwoLines(list, comparedSquareID)[0] == first
 									&& getTwoLines(list, comparedSquareID)[1] == second) {
 								multipleLinesCrossOutHorizontally(squareID, comparedSquareID, first, second, possible);
@@ -80,7 +80,7 @@ public class MultipleLinesMethod {
 					if (secondLine == 0) {
 						secondLine = temporary;
 					} else if (temporary != secondLine) {
-						return new int[0];
+						return null;
 					}
 				}
 			}
@@ -93,7 +93,7 @@ public class MultipleLinesMethod {
 			}
 			return result;
 		}
-		return new int[0];
+		return null;
 	}
 
 	private static void multipleLinesCrossOutHorizontally(int squareID, int comparedSquareID, int first, int second,
@@ -124,12 +124,12 @@ public class MultipleLinesMethod {
 		for (int squareColumn = 1; squareColumn < 4; squareColumn++) {
 			for (int square = 1; square < 4; square++) {
 				squareID = (square - 1) * 3 + squareColumn;
-				if (getTwoColumns(list, squareID).length > 0) {
+				if (getTwoColumns(list, squareID) != null) {
 					first = getTwoColumns(list, squareID)[0];
 					second = getTwoColumns(list, squareID)[1];
 					for (int comparedSquareID = squareID + 3; comparedSquareID < 7
 							+ squareID % 3; comparedSquareID += 3) {
-						if (getTwoColumns(list, comparedSquareID).length > 1) {
+						if (getTwoColumns(list, comparedSquareID) != null) {
 							if (getTwoColumns(list, comparedSquareID)[0] == first
 									&& getTwoColumns(list, comparedSquareID)[1] == second) {
 								multipleLinesCrossOutVertically(squareID, comparedSquareID, first, second, possible);
@@ -156,7 +156,7 @@ public class MultipleLinesMethod {
 					if (secondColumn == 0) {
 						secondColumn = temporary;
 					} else if (temporary != secondColumn) {
-						return new int[0];
+						return null;
 					}
 				}
 			}
@@ -169,7 +169,7 @@ public class MultipleLinesMethod {
 			}
 			return result;
 		}
-		return new int[0];
+		return null;
 	}
 
 	private static void multipleLinesCrossOutVertically(int squareID, int comparedSquareID, int first, int second,

@@ -10,9 +10,10 @@ public class Main {
 //		Board board = new Board("res/methods/NakedPairs2.txt");
 //		Board board = new Board("res/methods/NakedPairs3.txt");
 //		Board board = new Board("res/methods/NakedPairs4.txt");
-		
+//		Board board = new Board("res/methods/NakedPairs5.txt");	
 		
 		board.solve();
+		
 		// if not solved print how much it solved
 		Checker.printSolution();
 		boolean isNotIncorrect = Checker.isSolutionNotIncorrect(board);

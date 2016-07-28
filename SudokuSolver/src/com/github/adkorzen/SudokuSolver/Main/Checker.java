@@ -79,6 +79,7 @@ public class Checker {
 					if (numberTaken[results[i][j] - 1] == false) {
 						numberTaken[results[i][j] - 1] = true;
 					} else {
+						System.out.println(i + "," + j);
 						return false;
 					}
 				}
