@@ -3,8 +3,6 @@ package com.github.adkorzen.SudokuSolver.main.helper;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.github.adkorzen.SudokuSolver.main.Field;
-
 public class Helper {
 
 	
@@ -30,7 +28,7 @@ public class Helper {
 				binary += "0";
 			}
 			binary += temp;
-
+			
 			for (int i = 0; i < binary.length(); i++) {
 				if (binary.substring(i, i + 1).equals("1")) {
 					values.add(possibleValues.get(i));
@@ -44,13 +42,5 @@ public class Helper {
 		return results;
 	}
 	
-	public static void crossOut(List<Field> emptyFields, List<Field> arrayToLeave, List<Integer> combination) {
-		for (Field f : emptyFields) {
-			if (!arrayToLeave.contains(f)) {
-				for (Integer i : combination) {
-					f.setImpossibleValue(i);
-				}
-			}
-		}
-	}
+
 }

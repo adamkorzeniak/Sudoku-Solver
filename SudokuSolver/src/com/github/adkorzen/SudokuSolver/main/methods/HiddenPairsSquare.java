@@ -6,10 +6,10 @@ import java.util.List;
 import com.github.adkorzen.SudokuSolver.main.Field;
 import com.github.adkorzen.SudokuSolver.main.helper.Helper;
 
-public class NakedPairsSquare extends AbstractNakedPairs {
+public class HiddenPairsSquare extends AbstractHiddenPairs {
 
 	protected void check() {
-		outer: for (int square = 1; square < 10; square++) {
+		for (int square = 1; square < 10; square++) {
 			int startX = Helper.startXSquare(square);
 			int startY = Helper.startYSquare(square);
 
@@ -31,8 +31,8 @@ public class NakedPairsSquare extends AbstractNakedPairs {
 			for (List<Integer> combination : possibleCombinations) {
 				arrayToCheck = getArrayToCheck(combination, emptyFields);
 				if (arrayToCheck.size() == combination.size()) {
-					crossOut(emptyFields, arrayToCheck, combination);
-					continue outer;
+					crossOut(arrayToCheck, combination);
+					continue;
 				}
 			}
 		}

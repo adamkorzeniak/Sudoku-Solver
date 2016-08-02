@@ -2,6 +2,7 @@ package com.github.adkorzen.SudokuSolver.main.helper;
 
 import com.github.adkorzen.SudokuSolver.main.Board;
 import com.github.adkorzen.SudokuSolver.main.methods.CandidateLinesMethod;
+import com.github.adkorzen.SudokuSolver.main.methods.HiddenPairsMethod;
 import com.github.adkorzen.SudokuSolver.main.methods.MultipleLinesMethod;
 import com.github.adkorzen.SudokuSolver.main.methods.NakedPairsMethod;
 import com.github.adkorzen.SudokuSolver.main.methods.SingleCandidateMethod;
@@ -22,6 +23,7 @@ public class Solver {
 			new CandidateLinesMethod().run(board);
 			new MultipleLinesMethod().run(board);
 			new NakedPairsMethod().run(board);
+			new HiddenPairsMethod().run(board);
 		} while (changeHappened);
 	}
 
