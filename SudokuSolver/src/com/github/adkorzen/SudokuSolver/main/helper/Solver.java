@@ -7,6 +7,7 @@ import com.github.adkorzen.SudokuSolver.main.methods.MultipleLinesMethod;
 import com.github.adkorzen.SudokuSolver.main.methods.NakedPairsMethod;
 import com.github.adkorzen.SudokuSolver.main.methods.SingleCandidateMethod;
 import com.github.adkorzen.SudokuSolver.main.methods.SinglePositionMethod;
+import com.github.adkorzen.SudokuSolver.main.methods.SwordfishMethod;
 import com.github.adkorzen.SudokuSolver.main.methods.XWingMethod;
 
 public class Solver {
@@ -25,7 +26,8 @@ public class Solver {
 			new MultipleLinesMethod().run(board);
 			new NakedPairsMethod().run(board);
 			new HiddenPairsMethod().run(board);
-			new XWingMethod().run(board);
+//			new XWingMethod().run(board);
+			new SwordfishMethod().run(board);
 		} while (changeHappened);
 	}
 

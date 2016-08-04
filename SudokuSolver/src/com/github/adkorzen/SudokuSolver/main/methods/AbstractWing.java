@@ -55,7 +55,6 @@ public abstract class AbstractWing {
 				field2.setImpossibleValue(value);
 			}
 		}
-		
 	}
 
 	protected List<List<Field>> getFieldList(int value) {
