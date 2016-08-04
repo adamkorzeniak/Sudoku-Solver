@@ -16,7 +16,7 @@ public abstract class AbstractMultipleLines {
 	protected void check(List<List<Field>> list, int possible) {
 		int firstLine, secondLine, squareID;
 		for (int squareLine = 1; squareLine < 4; squareLine++) {
-			for (int square = 1; square < 4; square++) {
+			for (int square = 1; square < 3; square++) {
 				squareID = getSquareID(squareLine, square);
 				if (getTwoLines(list, squareID) != null) {
 					firstLine = getTwoLines(list, squareID)[0];

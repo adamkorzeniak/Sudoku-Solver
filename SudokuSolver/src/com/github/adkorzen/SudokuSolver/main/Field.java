@@ -1,6 +1,10 @@
 package com.github.adkorzen.SudokuSolver.main;
 
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import com.github.adkorzen.SudokuSolver.exceptions.AmbiguousValueException;
 import com.github.adkorzen.SudokuSolver.exceptions.IncorrectValueException;
 import com.github.adkorzen.SudokuSolver.exceptions.NoPossibleValueException;
@@ -100,5 +104,49 @@ public class Field {
 
 	public int getPossibleCount() {
 		return possibleCount;
+	}
+	
+	public List<Integer> getPossibleValues() {
+		List<Integer> result = new ArrayList<Integer>();
+		for (int value = 1; value < 10; value++) {
+			if (isPossible(value)) {
+				result.add(value);
+			}
+		}
+		return result;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Arrays.hashCode(possible);
+		result = prime * result + possibleCount;
+		result = prime * result + value;
+		result = prime * result + x;
+		result = prime * result + y;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Field other = (Field) obj;
+		if (!Arrays.equals(possible, other.possible))
+			return false;
+		if (possibleCount != other.possibleCount)
+			return false;
+		if (value != other.value)
+			return false;
+		if (x != other.x)
+			return false;
+		if (y != other.y)
+			return false;
+		return true;
 	}
 }

@@ -15,103 +15,52 @@ public class SolverSwordFish {
 	public void SolveBoard_SwordFishBoard_CorrectResult() {
 		Board board = new Board("res/methods/Swordfish.txt");
 		board.solve();
-		
-		int[] expecteds = new int[11];
-		int[] actuals = new int[11];
-		
-		expecteds[0] = 2;
-		actuals[0] = board.getField(2, 3).getPossibleCount();
-		expecteds[1] = 3;
-		actuals[1] = board.getField(2, 4).getPossibleCount();
-		expecteds[2] = 2;
-		actuals[2] = board.getField(2, 5).getPossibleCount();
-		expecteds[3] = 2;
-		actuals[3] = board.getField(2, 8).getPossibleCount();
-		expecteds[4] = 2;
-		actuals[4] = board.getField(4, 2).getPossibleCount();
-		expecteds[5] = 2;
-		actuals[5] = board.getField(4, 3).getPossibleCount();
-		expecteds[6] = 2;
-		actuals[6] = board.getField(4, 5).getPossibleCount();
-		expecteds[7] = 2;
-		actuals[7] = board.getField(4, 8).getPossibleCount();
-		expecteds[8] = 2;
-		actuals[8] = board.getField(4, 9).getPossibleCount();
-		expecteds[9] = 2;
-		actuals[9] = board.getField(7, 5).getPossibleCount();
-		expecteds[10] = 2;
-		actuals[10] = board.getField(7, 8).getPossibleCount();
-		
+
+		int[][] expecteds = { { 1, 9, 5, 3, 6, 7, 2, 4, 8 }, { 2, 7, 8, 1, 5, 4, 3, 6, 9 },
+				{ 3, 4, 6, 2, 9, 8, 1, 5, 7 }, { 6, 2, 3, 7, 8, 1, 5, 9, 4 }, { 7, 1, 9, 4, 2, 5, 8, 3, 6 },
+				{ 5, 8, 4, 9, 3, 6, 7, 1, 2 }, { 8, 3, 2, 5, 4, 9, 6, 7, 1 }, { 9, 6, 7, 8, 1, 3, 4, 2, 5 },
+				{ 4, 5, 1, 6, 7, 2, 9, 8, 3 } };
+		int[][] actuals = board.getResult();
+
 		assertArrayEquals(expecteds, actuals);
 	}
-	
+
 	@Test
 	public void SolveBoard_SwordFish2Board_CorrectResult() {
 		Board board = new Board("res/methods/Swordfish2.txt");
 		board.solve();
-		
-		int[] expecteds = new int[12];
-		int[] actuals = new int[12];
-		
-		expecteds[0] = 2;
-		actuals[0] = board.getField(2, 3).getPossibleCount();
-		expecteds[1] = 4;//
-		actuals[1] = board.getField(2, 4).getPossibleCount();
-		expecteds[2] = 2;
-		actuals[2] = board.getField(2, 5).getPossibleCount();
-		expecteds[3] = 3;//
-		actuals[3] = board.getField(2, 6).getPossibleCount();
-		expecteds[4] = 2;
-		actuals[4] = board.getField(2, 8).getPossibleCount();
-		expecteds[5] = 3;//
-		actuals[5] = board.getField(4, 1).getPossibleCount();
-		expecteds[6] = 2;
-		actuals[6] = board.getField(4, 3).getPossibleCount();
-		expecteds[7] = 2;
-		actuals[7] = board.getField(4, 6).getPossibleCount();
-		expecteds[8] = 2;
-		actuals[8] = board.getField(4, 8).getPossibleCount();
-		expecteds[9] = 3;
-		actuals[9] = board.getField(4, 9).getPossibleCount();
-		expecteds[10] = 2;
-		actuals[10] = board.getField(7, 3).getPossibleCount();
-		expecteds[11] = 2;
-		actuals[11] = board.getField(7, 5).getPossibleCount();
-		
+
+		int[][] expecteds = {{5, 6, 3, 4, 7, 2, 9, 8, 1}, 
+				{1, 8, 4, 9, 5, 3, 2, 6, 7}, 
+				{9, 2, 7, 1, 6, 8, 5, 4, 3}, 
+				{2, 7, 1, 6, 9, 5, 4, 3, 8}, 
+				{4, 5, 6, 8, 3, 7, 1, 9, 2}, 
+				{3, 9, 8, 2, 1, 4, 6, 7, 5}, 
+				{6, 4, 5, 3, 8, 1, 7, 2, 9}, 
+				{8, 1, 9, 7, 2, 6, 3, 5, 4}, 
+				{7, 3, 2, 5, 4, 9, 8, 1, 6}};
+		int[][] actuals = board.getResult();
+
+
 		assertArrayEquals(expecteds, actuals);
 	}
-	
+
 	@Test
 	public void SolveBoard_SwordFish3Board_CorrectResult() {
 		Board board = new Board("res/methods/Swordfish3.txt");
 		board.solve();
-		
-		int[] expecteds = new int[11];
-		int[] actuals = new int[11];
-		
-		expecteds[0] = 2;
-		actuals[0] = board.getField(3, 2).getPossibleCount();
-		expecteds[1] = 3;
-		actuals[1] = board.getField(4, 2).getPossibleCount();
-		expecteds[2] = 2;
-		actuals[2] = board.getField(5, 2).getPossibleCount();
-		expecteds[3] = 2;
-		actuals[3] = board.getField(8, 2).getPossibleCount();
-		expecteds[4] = 2;
-		actuals[4] = board.getField(2, 4).getPossibleCount();
-		expecteds[5] = 2;
-		actuals[5] = board.getField(3, 4).getPossibleCount();
-		expecteds[6] = 2;
-		actuals[6] = board.getField(5, 4).getPossibleCount();
-		expecteds[7] = 2;
-		actuals[7] = board.getField(8, 4).getPossibleCount();
-		expecteds[8] = 2;
-		actuals[8] = board.getField(9, 4).getPossibleCount();
-		expecteds[9] = 2;
-		actuals[9] = board.getField(5, 7).getPossibleCount();
-		expecteds[10] = 2;
-		actuals[10] = board.getField(8, 7).getPossibleCount();
-		
+
+		int[][] expecteds = {{1, 2, 3, 6, 7, 5, 8, 9, 4}, 
+				{9, 7, 4, 2, 1, 8, 3, 6, 5}, 
+				{5, 8, 6, 3, 9, 4, 2, 7, 1}, 
+				{3, 1, 2, 7, 4, 9, 5, 8, 6}, 
+				{6, 5, 9, 8, 2, 3, 4, 1, 7}, 
+				{7, 4, 8, 1, 5, 6, 9, 3, 2}, 
+				{2, 3, 1, 5, 8, 7, 6, 4, 9}, 
+				{4, 6, 5, 9, 3, 1, 7, 2, 8}, 
+				{8, 9, 7, 4, 6, 2, 1, 5, 3} };
+		int[][] actuals = board.getResult();
+
 		assertArrayEquals(expecteds, actuals);
 	}
 }

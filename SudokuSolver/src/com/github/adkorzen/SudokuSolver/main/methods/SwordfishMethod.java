@@ -10,6 +10,7 @@ public class SwordfishMethod {
 		xWing();
 	}
 
+	// consists of Swingfish and X-Wing Methods
 	private void xWing() {
 		new SwordfishHorizontally().run(board);
 		new SwordfishVertically().run(board);

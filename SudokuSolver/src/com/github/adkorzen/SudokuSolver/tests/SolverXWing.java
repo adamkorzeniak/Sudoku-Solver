@@ -17,10 +17,18 @@ public class SolverXWing {
 		board.solve();
 
 
-		int expected= 8;
-		int actual = board.getField(9, 1).getValue();
+		int[][] expecteds = {{9, 6, 2, 4, 5, 1, 7, 3, 8}, 
+			{1, 4, 7, 3, 9, 8, 2, 6, 5}, 
+			{5, 8, 3, 2, 7, 6, 4, 9, 1}, 
+			{8, 1, 6, 7, 2, 4, 3, 5, 9}, 
+			{2, 3, 9, 1, 6, 5, 8, 4, 7}, 
+			{4, 7, 5, 9, 8, 3, 6, 1, 2}, 
+			{6, 2, 1, 5, 3, 7, 9, 8, 4}, 
+			{7, 5, 8, 6, 4, 9, 1, 2, 3}, 
+			{3, 9, 4, 8, 1, 2, 5, 7, 6} };
+		int[][] actuals = board.getResult();
 
-		assertEquals(expected, actual);
+		assertArrayEquals(expecteds, actuals);
 	}
 
 	@Test
@@ -28,29 +36,18 @@ public class SolverXWing {
 		Board board = new Board("res/methods/X-Wing2.txt");
 		board.solve();
 
-		int[] expecteds = new int[10];
-		int[] actuals = new int[10];
-
-		expecteds[0] = 2;
-		actuals[0] = board.getField(6, 4).getPossibleCount();
-		expecteds[1] = 4;
-		actuals[1] = board.getField(6, 5).getPossibleCount();
-		expecteds[2] = 3;
-		actuals[2] = board.getField(6, 6).getPossibleCount();
-		expecteds[3] = 3;
-		actuals[3] = board.getField(6, 7).getPossibleCount();
-		expecteds[4] = 2;
-		actuals[4] = board.getField(6, 8).getPossibleCount();
-		expecteds[5] = 3;
-		actuals[5] = board.getField(6, 9).getPossibleCount();
-		expecteds[6] = 2;
-		actuals[6] = board.getField(8, 1).getPossibleCount();
-		expecteds[7] = 2;
-		actuals[7] = board.getField(8, 4).getPossibleCount();
-		expecteds[8] = 2;
-		actuals[8] = board.getField(8, 6).getPossibleCount();
-		expecteds[9] = 2;
-		actuals[9] = board.getField(8, 7).getPossibleCount();
+		int[][] expecteds = {
+				{8, 5, 7, 9, 1, 2, 3, 4, 6}, 
+				{2, 9, 1, 3, 4, 6, 7, 5, 8}, 
+				{3, 4, 6, 7, 8, 5, 1, 9, 2}, 
+				{1, 2, 4, 5, 6, 7, 9, 8, 3}, 
+				{7, 6, 8, 1, 3, 9, 4, 2, 5}, 
+				{9, 3, 5, 8, 2, 4, 6, 7, 1}, 
+				{4, 1, 2, 6, 9, 8, 5, 3, 7}, 
+				{6, 7, 9, 2, 5, 3, 8, 1, 4}, 
+				{5, 8, 3, 4, 7, 1, 2, 6, 9} };
+		
+		int[][] actuals = board.getResult();
 
 		assertArrayEquals(expecteds, actuals);
 	}

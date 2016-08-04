@@ -10,7 +10,7 @@ public class SolverHiddenPairs {
 
 	// In order for all tests to work comment out System.exit
 	// from method decreaseUnsolvedAmount() from Board class
-
+	
 	@Test
 	public void SolveBoard_HiddenPairsBoard_CorrectResult() {
 		Board board = new Board("res/methods/HiddenPairs.txt");
@@ -109,8 +109,7 @@ public class SolverHiddenPairs {
 		assertArrayEquals(expecteds, actuals);
 	}
 	
-//	@Test Needed more advanced techniques to establish starting board
-//	When established manually works
+	@Test 
 	public void SolveBoard_HiddenPairs5Board_CorrectResult() {
 		Board board = new Board("res/methods/HiddenPairs5.txt");
 		board.solve();
@@ -135,8 +134,7 @@ public class SolverHiddenPairs {
 		assertArrayEquals(expecteds, actuals);
 	}
 	
-//	@Test Needed more advanced techniques to establish starting board
-//	When established manually works
+	@Test
 	public void SolveBoard_HiddenPairs6Board_CorrectResult() {
 		Board board = new Board("res/methods/HiddenPairs6.txt");
 		board.solve();

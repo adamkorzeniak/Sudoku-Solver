@@ -3,6 +3,8 @@ package com.github.adkorzen.SudokuSolver.main.helper;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.github.adkorzen.SudokuSolver.main.Field;
+
 public class Helper {
 
 	
@@ -12,6 +14,13 @@ public class Helper {
 	
 	public static int startYSquare(int square) {
 		return (square - 1) / 3 * 3 + 1;
+	}
+	
+	public static int getSquareID(Field field) {
+		int x = field.getX();
+		int y = field.getY();
+		int result = (y - 1) / 3 * 3 + (x + 2) / 3;
+		return result;
 	}
 	
 	public static List<List<Integer>> getPossibleCombinations(List<Integer> possibleValues) {
