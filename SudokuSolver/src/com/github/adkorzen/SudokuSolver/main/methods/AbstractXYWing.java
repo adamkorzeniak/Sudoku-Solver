@@ -81,8 +81,8 @@ public abstract class AbstractXYWing {
 	protected void crossOut(Field firstField, Field secondField) {
 		Field field1 = board.getField(firstField.getX(), secondField.getY());
 		Field field2 = board.getField(secondField.getX(), firstField.getY());
-		field1.setImpossibleValue(thirdPossibility);
-		field2.setImpossibleValue(thirdPossibility);
+		field1.setImpossibleValue(board, thirdPossibility);
+		field2.setImpossibleValue(board, thirdPossibility);
 	}
 
 	protected abstract int acquireLineCoordinate(Field field);

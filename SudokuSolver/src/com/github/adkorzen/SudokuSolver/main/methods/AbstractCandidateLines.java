@@ -19,7 +19,7 @@ public abstract class AbstractCandidateLines {
 			for (int i = 1; i < 10; i++) {
 				toChange = acquireField(arrayToCheck, i);
 				if (!arrayToCheck.contains(toChange) && toChange.getValue() == 0 && toChange.isPossible(possible)) {
-					toChange.setImpossibleValue(possible);
+					toChange.setImpossibleValue(board, possible);
 				}
 			}
 		}

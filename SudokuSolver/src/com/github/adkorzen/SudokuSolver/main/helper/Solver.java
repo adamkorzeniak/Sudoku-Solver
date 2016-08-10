@@ -1,38 +1,11 @@
 package com.github.adkorzen.SudokuSolver.main.helper;
 
 import com.github.adkorzen.SudokuSolver.main.Board;
-import com.github.adkorzen.SudokuSolver.main.methods.CandidateLinesMethod;
-import com.github.adkorzen.SudokuSolver.main.methods.HiddenPairsMethod;
-import com.github.adkorzen.SudokuSolver.main.methods.MultipleLinesMethod;
-import com.github.adkorzen.SudokuSolver.main.methods.NakedPairsMethod;
-import com.github.adkorzen.SudokuSolver.main.methods.SingleCandidateMethod;
-import com.github.adkorzen.SudokuSolver.main.methods.SinglePositionMethod;
-import com.github.adkorzen.SudokuSolver.main.methods.SwordfishMethod;
-import com.github.adkorzen.SudokuSolver.main.methods.XYWingMethod;
 
 public class Solver {
-	private static Board board;
-	private static boolean changeHappened = false;
 
-
-	// Not yet finished
-	public static void solveBoard(Board b) {
-		board = b;
-		new SingleCandidateMethod().run(board);
-		do {
-			changeHappened = false;
-			new SinglePositionMethod().run(board);
-			new CandidateLinesMethod().run(board);
-			new MultipleLinesMethod().run(board);
-			new NakedPairsMethod().run(board);
-			new HiddenPairsMethod().run(board);
-			new SwordfishMethod().run(board);
-			new XYWingMethod().run(board);
-		} while (changeHappened);
-	}
-
-	public static void printSolution() {
-		int[][] results = board.getResult();
+	public static void printSolution(Board b) {
+		int[][] results = b.getResult();
 		for (int i = 0; i < 9; i++) {
 			int[] res = results[i];
 			for (int j = 0; j < 9; j++) {
@@ -152,9 +125,5 @@ public class Solver {
 			}
 		}
 		return true;
-	}
-
-	public static void setChangeHappend() {
-		changeHappened = true;
 	}
 }

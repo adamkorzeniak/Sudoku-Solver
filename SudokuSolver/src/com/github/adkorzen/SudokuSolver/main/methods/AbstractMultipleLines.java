@@ -82,7 +82,7 @@ public abstract class AbstractMultipleLines {
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 2; j++) {
 				Field toCrossOut = getFieldToCrossOut(squareToCrossOut, lines, i, j);
-				toCrossOut.setImpossibleValue(possible);
+				toCrossOut.setImpossibleValue(board, possible);
 			}
 		}
 	}

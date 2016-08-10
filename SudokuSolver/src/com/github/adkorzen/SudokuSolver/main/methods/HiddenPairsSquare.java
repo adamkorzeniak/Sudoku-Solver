@@ -9,7 +9,7 @@ import com.github.adkorzen.SudokuSolver.main.helper.Helper;
 public class HiddenPairsSquare extends AbstractHiddenPairs {
 
 	protected void check() {
-		for (int square = 1; square < 10; square++) {
+		outer: for (int square = 1; square < 10; square++) {
 			int startX = Helper.startXSquare(square);
 			int startY = Helper.startYSquare(square);
 
@@ -32,7 +32,7 @@ public class HiddenPairsSquare extends AbstractHiddenPairs {
 				arrayToCheck = getArrayToCheck(combination, emptyFields);
 				if (arrayToCheck.size() == combination.size()) {
 					crossOut(arrayToCheck, combination);
-					continue;
+					continue outer;
 				}
 			}
 		}

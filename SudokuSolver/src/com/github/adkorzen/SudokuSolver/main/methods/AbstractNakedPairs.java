@@ -43,7 +43,7 @@ public abstract class AbstractNakedPairs extends AbstractPairs {
 		for (Field f : emptyFields) {
 			if (!arrayToLeave.contains(f)) {
 				for (Integer i : combination) {
-					f.setImpossibleValue(i);
+					f.setImpossibleValue(board, i);
 				}
 			}
 		}

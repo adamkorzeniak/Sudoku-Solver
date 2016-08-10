@@ -37,7 +37,7 @@ public abstract class AbstractSinglePosition {
 
 	protected void isOnlySolution(List<Field> possiblePosition, int value) {
 		if (possiblePosition.size() == 1) {
-			possiblePosition.get(0).setValue(value);
+			possiblePosition.get(0).setValue(board, value);
 		}
 	}
 

@@ -23,7 +23,7 @@ public class FieldTest {
 	@Test (expected = IncorrectValueException.class)
 	public void SetFieldValue_FieldWithIncorrectValue_RuntimeException() {
 		Field field = new Field(board, 3, 4);
-		field.setValue(10);
+		field.setValue(board, 10);
 	}
 	
 	@Test
@@ -37,7 +37,7 @@ public class FieldTest {
 	}
 	@Test
 	public void SetImpossibleValue_ValidInput_OK() {
-		field.setImpossibleValue(5);
+		field.setImpossibleValue(board, 5);
 		boolean actual = field.isPossible(5);
 		boolean expected = false;
 		

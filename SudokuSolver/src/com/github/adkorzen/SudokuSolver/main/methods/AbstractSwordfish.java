@@ -105,7 +105,7 @@ public abstract class AbstractSwordfish {
 			for (Integer coord: perpendicularCoordinates) {
 				Field field = acquireField(coord, i);
 				if (!fieldsNotToChange.contains(field)) {
-					field.setImpossibleValue(value);
+					field.setImpossibleValue(board, value);
 				}
 			}
 		}

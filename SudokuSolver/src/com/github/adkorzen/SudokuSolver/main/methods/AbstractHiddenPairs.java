@@ -43,7 +43,7 @@ public abstract class AbstractHiddenPairs extends AbstractPairs {
 		for (Field f : arrayCrossOut) {
 			for (int value = 1; value < 10; value++) {
 				if (!combination.contains(value)) {
-					f.setImpossibleValue(value);
+					f.setImpossibleValue(board, value);
 				}
 			}
 		}
