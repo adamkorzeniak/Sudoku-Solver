@@ -1,6 +1,5 @@
 package com.github.adkorzen.SudokuSolver.main.methods;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +14,7 @@ public class MultipleLinesMethod {
 		board = b;
 		multipleLinesMethod();
 	}
+
 	// consists both: Double Pairs and Multiple Lines Methods
 	private void multipleLinesMethod() {
 		List<List<Field>> lists = null;

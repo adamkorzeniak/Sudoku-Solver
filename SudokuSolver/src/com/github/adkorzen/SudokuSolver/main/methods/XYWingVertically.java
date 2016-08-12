@@ -8,14 +8,17 @@ import com.github.adkorzen.SudokuSolver.main.Field;
 
 public class XYWingVertically extends AbstractXYWing {
 
+	@Override
 	protected int acquireLineCoordinate(Field field) {
 		return field.getX();
 	}
-	
+
+	@Override
 	protected Field acquireField(int line, int i) {
 		return board.getField(line, i);
 	}
-	
+
+	@Override
 	protected void check() {
 		for (Field f : vertical) {
 			if (f.getPossibleCount() == 2) {
@@ -23,7 +26,8 @@ public class XYWingVertically extends AbstractXYWing {
 			}
 		}
 	}
-	
+
+	@Override
 	protected void checkOtherDirection(int toMatch) {
 		for (Field f : horizontal) {
 			if (f.getPossibleCount() == 2) {
@@ -31,7 +35,7 @@ public class XYWingVertically extends AbstractXYWing {
 			}
 		}
 	}
-	
+
 	public static List<Field> getEligibleFields(Board board, Field field) {
 		List<Field> result = new ArrayList<Field>();
 		int line = field.getX();

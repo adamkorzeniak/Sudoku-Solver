@@ -1,6 +1,5 @@
 package com.github.adkorzen.SudokuSolver.main.methods;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,10 +14,10 @@ public class CandidateLinesMethod {
 		board = b;
 		candidateLinesMethod();
 	}
-	
+
 	private void candidateLinesMethod() {
-			for (int a = 1; a < 10; a++) {
-					candidateLinesMethodCheckSquare(a);
+		for (int a = 1; a < 10; a++) {
+			candidateLinesMethodCheckSquare(a);
 		}
 	}
 

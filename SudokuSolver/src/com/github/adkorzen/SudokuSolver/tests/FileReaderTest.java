@@ -23,10 +23,12 @@ public class FileReaderTest {
 	public void ReadFile_FileHoldFewLowEntries_RuntimeExceptionThrown() throws IOException {
 		FileReader.readFile("res/tests/TooShort.txt");
 	}
+
 	@Test(expected = FileHoldTooManyEntriesException.class)
 	public void ReadFile_FileHoldManyLowEntries_RuntimeExceptionThrown() throws IOException {
 		FileReader.readFile("res/tests/TooLong.txt");
 	}
+
 	@Test(expected = FileHoldInvalidEntriesException.class)
 	public void ReadFile_FileHoldInvalidEntries_RuntimeExceptionThrown() throws IOException {
 		FileReader.readFile("res/tests/Invalid.txt");

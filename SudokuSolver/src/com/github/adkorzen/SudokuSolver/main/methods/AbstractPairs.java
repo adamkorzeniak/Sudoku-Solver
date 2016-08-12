@@ -14,8 +14,8 @@ public abstract class AbstractPairs {
 	protected List<Integer> possibleValues;
 	protected List<Field> emptyFields;
 	protected List<Field> arrayToCheck;
-	List<List<Integer>> possibleCombinations;
-	
+	protected List<List<Integer>> possibleCombinations;
+
 	protected void setUpLists(int line) {
 		possibleValues = setAllValuesPossible();
 		emptyFields = new ArrayList<Field>();
@@ -38,5 +38,6 @@ public abstract class AbstractPairs {
 		}
 		return result;
 	}
+
 	protected abstract Field acquireField(int line, int i);
 }

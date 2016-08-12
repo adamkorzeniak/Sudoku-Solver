@@ -41,7 +41,7 @@ public class BoardTest {
 		int expected = 81;
 		assertEquals(expected, actual);
 	}
-	
+
 	@Test
 	public void SetAndGetFieldValue_FieldWithValue_CorrectlySet() {
 		Field field = board.getField(3, 4);
@@ -49,7 +49,7 @@ public class BoardTest {
 		int expected = 5;
 		assertEquals(expected, actual);
 	}
-	
+
 	@Test
 	public void SetAndGetFieldValue_FieldWithNoValue_ZeroValue() {
 		Field field = board.getField(3, 1);

@@ -10,7 +10,7 @@ public class SolverCandidateLines {
 
 	// In order for all tests to work comment out System.exit
 	// from method decreaseUnsolvedAmount() from Board class
-	
+
 	@Test
 	public void SolveBoard_CandidateLinesBoard_CorrectResult() {
 		Board board = new Board("res/methods/CandidateLines.txt");

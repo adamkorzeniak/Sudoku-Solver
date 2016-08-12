@@ -1,6 +1,5 @@
 package com.github.adkorzen.SudokuSolver.main;
 
-
 import java.io.IOException;
 
 import com.github.adkorzen.SudokuSolver.exceptions.IncorrectValueException;
@@ -35,8 +34,8 @@ public class Board {
 		}
 		createFields();
 	}
-	
-	public Board (Board toClone) {
+
+	public Board(Board toClone) {
 		this.results = new int[9][9];
 		for (int i = 0; i < 9; i++) {
 			for (int j = 0; j < 9; j++) {
@@ -53,7 +52,7 @@ public class Board {
 		}
 		this.changeHappened = toClone.changeHappened;
 	}
-	
+
 	private void createFields() {
 		for (int i = 0; i < 9; i++) {
 			for (int j = 0; j < 9; j++) {
@@ -72,7 +71,7 @@ public class Board {
 			Solver.printSolution(this);
 			boolean isCorrect = Solver.isSolutionCorrect(this);
 			if (isCorrect) {
-			System.out.print("Solution is correct.");
+				System.out.print("Solution is correct.");
 			} else {
 				System.out.print("Solution is wrong.");
 			}
@@ -91,11 +90,11 @@ public class Board {
 			new HiddenPairsMethod().run(this);
 			new SwordfishMethod().run(this);
 			new XYWingMethod().run(this);
+			new ForcingChainsMethod().run(this);
 		} while (changeHappened);
-		
-		new ForcingChainsMethod().run(this);
+		Solver.printSolution(this);
+		System.out.println("Implemented algorithms did not succeed in solving this board.");
 	}
-	
 
 	public int[][] getResult() {
 		return results;
@@ -115,11 +114,11 @@ public class Board {
 	public Field getField(int x, int y) {
 		return fields[y - 1][x - 1];
 	}
-	
+
 	public boolean isCreated() {
 		return created;
 	}
-	
+
 	public void setChangeHappend(boolean happened) {
 		changeHappened = happened;
 	}

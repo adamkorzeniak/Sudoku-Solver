@@ -95,14 +95,14 @@ public abstract class AbstractSwordfish {
 
 	protected void crossOut(List<List<Field>> linesWithTwoPossibleFields, List<Integer> chainIndexes,
 			List<Integer> perpendicularCoordinates, int value) {
-		
+
 		List<Field> fieldsNotToChange = new ArrayList<Field>();
-		for (Integer index: chainIndexes) {
+		for (Integer index : chainIndexes) {
 			fieldsNotToChange.add(linesWithTwoPossibleFields.get(index).get(0));
 			fieldsNotToChange.add(linesWithTwoPossibleFields.get(index).get(1));
 		}
-		for (int i = 1; i < 10; i ++) {
-			for (Integer coord: perpendicularCoordinates) {
+		for (int i = 1; i < 10; i++) {
+			for (Integer coord : perpendicularCoordinates) {
 				Field field = acquireField(coord, i);
 				if (!fieldsNotToChange.contains(field)) {
 					field.setImpossibleValue(board, value);

@@ -1,16 +1,15 @@
 package com.github.adkorzen.SudokuSolver.main.methods;
 
-
 import com.github.adkorzen.SudokuSolver.main.Board;
 import com.github.adkorzen.SudokuSolver.main.Field;
 
 public class SingleCandidateMethod {
 	private Field field;
-	
+
 	public void run(Board board) {
 		singleCandidateMethod(board);
 	}
-	
+
 	private void singleCandidateMethod(Board board) {
 		for (int y = 1; y < 10; y++) {
 			for (int x = 1; x < 10; x++) {
@@ -22,13 +21,13 @@ public class SingleCandidateMethod {
 			}
 		}
 	}
-	
+
 	public static void crossOutFromLineColumnSquare(Board board, Field field) {
 		crossOutFromLine(board, field);
 		crossOutFromColumn(board, field);
 		crossOutFromSquare(board, field);
 	}
-	
+
 	private static void crossOutFromLine(Board board, Field field) {
 		int y = field.getY();
 		int value = field.getValue();

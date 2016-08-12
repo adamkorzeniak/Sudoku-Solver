@@ -12,7 +12,7 @@ public abstract class AbstractMultipleLines {
 		board = b;
 		check(list, possible);
 	}
-	
+
 	protected void check(List<List<Field>> list, int possible) {
 		int firstLine, secondLine, squareID;
 		for (int squareLine = 1; squareLine < 4; squareLine++) {
@@ -26,9 +26,9 @@ public abstract class AbstractMultipleLines {
 			}
 		}
 	}
-	
+
 	protected abstract int getSquareID(int squareLine, int square);
-	
+
 	protected int[] getTwoLines(List<List<Field>> list, int squareID) {
 		List<Field> squareList = list.get(squareID - 1);
 		if (squareList.size() > 1) {
@@ -39,7 +39,8 @@ public abstract class AbstractMultipleLines {
 			firstLine = getLineCoordinate(squareList, 0);
 
 			for (int i = 1; i < squareList.size(); i++) {
-				temporary = getLineCoordinate(squareList, i);;
+				temporary = getLineCoordinate(squareList, i);
+				;
 				if (temporary != firstLine) {
 					if (secondLine == 0) {
 						secondLine = temporary;
@@ -59,9 +60,10 @@ public abstract class AbstractMultipleLines {
 		}
 		return null;
 	}
-	
-	protected abstract void compareSquares(List<List<Field>> list, int squareID, int firstLine, int secondLine, int possible);
-	
+
+	protected abstract void compareSquares(List<List<Field>> list, int squareID, int firstLine, int secondLine,
+			int possible);
+
 	protected abstract int getLineCoordinate(List<Field> squareList, int i);
 
 	protected void compareSquareLines(List<List<Field>> list, int squareID, int comparedSquareID, int firstLine,
@@ -73,7 +75,7 @@ public abstract class AbstractMultipleLines {
 			}
 		}
 	}
-	
+
 	protected void crossOut(int squareID, int comparedSquareID, int first, int second, int possible) {
 		int squareToCrossOut = getSquareToCrossOut(squareID, comparedSquareID);
 		int[] lines = new int[2];
@@ -86,8 +88,8 @@ public abstract class AbstractMultipleLines {
 			}
 		}
 	}
-	
+
 	protected abstract int getSquareToCrossOut(int squareID, int comparedSquareID);
-	
-	protected abstract Field getFieldToCrossOut(int squareToCrossOut,int[] lines, int i, int j);
+
+	protected abstract Field getFieldToCrossOut(int squareToCrossOut, int[] lines, int i, int j);
 }

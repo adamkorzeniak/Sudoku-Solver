@@ -1,6 +1,5 @@
 package com.github.adkorzen.SudokuSolver.main;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +19,7 @@ public class Field {
 		this.y = y;
 		setAllValuesPossible();
 	}
-	
+
 	public Field(Board board, Field toClone) {
 		this.x = toClone.x;
 		this.y = toClone.y;
@@ -112,7 +111,7 @@ public class Field {
 	public int getPossibleCount() {
 		return possibleCount;
 	}
-	
+
 	public List<Integer> getPossibleValues() {
 		List<Integer> result = new ArrayList<Integer>();
 		for (int value = 1; value < 10; value++) {

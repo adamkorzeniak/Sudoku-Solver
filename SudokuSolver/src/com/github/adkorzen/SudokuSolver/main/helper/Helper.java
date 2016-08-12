@@ -7,22 +7,21 @@ import com.github.adkorzen.SudokuSolver.main.Field;
 
 public class Helper {
 
-	
 	public static int startXSquare(int square) {
 		return (square - 1) % 3 * 3 + 1;
 	}
-	
+
 	public static int startYSquare(int square) {
 		return (square - 1) / 3 * 3 + 1;
 	}
-	
+
 	public static int getSquareID(Field field) {
 		int x = field.getX();
 		int y = field.getY();
 		int result = (y - 1) / 3 * 3 + (x + 2) / 3;
 		return result;
 	}
-	
+
 	public static List<List<Integer>> getPossibleCombinations(List<Integer> possibleValues) {
 		String binary = null;
 		List<List<Integer>> results = new ArrayList<List<Integer>>();
@@ -37,7 +36,7 @@ public class Helper {
 				binary += "0";
 			}
 			binary += temp;
-			
+
 			for (int i = 0; i < binary.length(); i++) {
 				if (binary.substring(i, i + 1).equals("1")) {
 					values.add(possibleValues.get(i));
@@ -50,6 +49,5 @@ public class Helper {
 		}
 		return results;
 	}
-	
 
 }

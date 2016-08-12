@@ -8,6 +8,7 @@ import com.github.adkorzen.SudokuSolver.main.helper.Helper;
 
 public class HiddenPairsSquare extends AbstractHiddenPairs {
 
+	@Override
 	protected void check() {
 		outer: for (int square = 1; square < 10; square++) {
 			int startX = Helper.startXSquare(square);
@@ -37,11 +38,10 @@ public class HiddenPairsSquare extends AbstractHiddenPairs {
 			}
 		}
 	}
-	
-	
+
+	@Override
 	protected Field acquireField(int line, int i) {
 		return board.getField(i, line);
 	}
-	
-	
+
 }

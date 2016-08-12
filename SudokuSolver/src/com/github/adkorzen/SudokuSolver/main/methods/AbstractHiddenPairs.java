@@ -29,7 +29,7 @@ public abstract class AbstractHiddenPairs extends AbstractPairs {
 	protected static List<Field> getArrayToCheck(List<Integer> combination, List<Field> emptyFields) {
 		List<Field> arrayToCheck = new ArrayList<Field>();
 		outer: for (Field f : emptyFields) {
-			for (int i: combination) {
+			for (int i : combination) {
 				if (f.isPossible(i)) {
 					arrayToCheck.add(f);
 					continue outer;
@@ -38,7 +38,7 @@ public abstract class AbstractHiddenPairs extends AbstractPairs {
 		}
 		return arrayToCheck;
 	}
-	
+
 	protected void crossOut(List<Field> arrayCrossOut, List<Integer> combination) {
 		for (Field f : arrayCrossOut) {
 			for (int value = 1; value < 10; value++) {
